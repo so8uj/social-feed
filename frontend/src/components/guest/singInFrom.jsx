@@ -1,56 +1,135 @@
+import { useEffect, useState } from "react";
+import callApi from "../../hooks/callApi";
+import FormAlerts from "../form/formAlerts";
+
 export default function singInFrom() {
+  const { request } = callApi();
+  const [loading, setLoading] = useState(false);
+  const [error, setErros] = useState({
+    status: false,
+    message: "",
+  });
+
+  const [signInData, setSignInData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setSignInData({
+      ...signInData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const resetSuccessError = () => {
+    setErros({
+      status: false,
+      message: "",
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!signInData.email || !signInData.password) {
+      setErros({
+        status: true,
+        message: "All fields are required",
+      });
+      return;
+    }
+
+    setLoading(true);
+    resetSuccessError();
+
+    try {
+      const response = await request({
+        method: "POST",
+        url: "login",
+        data: signInData,
+      });
+
+      localStorage.setItem("token", response.token);
+    } catch (err) {
+      setLoading(false);
+      setErros({
+        status: true,
+        message: err.response?.data?.message || "Invalid email or password.",
+      });
+    }
+  };
+
   return (
-    <form className="_social_login_form">
-      <div className="row">
-        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-          <div className="_social_login_form_input _mar_b14">
-            <label className="_social_login_label _mar_b8">Email</label>
-            <input type="email" className="form-control _social_login_input" />
+    <>
+      {error.status && (
+        <FormAlerts alertData={{ type: "danger", message: error.message }} />
+      )}
+      <form className="_social_login_form" onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div className="_social_login_form_input _mar_b14">
+              <label className="_social_login_label _mar_b8">Email</label>
+              <input
+                type="email"
+                className="form-control _social_login_input"
+                name="email"
+                value={signInData.email}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div className="_social_login_form_input _mar_b14">
+              <label className="_social_login_label _mar_b8">Password</label>
+              <input
+                type="password"
+                className="form-control _social_login_input"
+                name="password"
+                value={signInData.password}
+                onChange={handleChange}
+              />
+            </div>
           </div>
         </div>
-        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-          <div className="_social_login_form_input _mar_b14">
-            <label className="_social_login_label _mar_b8">Password</label>
-            <input
-              type="password"
-              className="form-control _social_login_input"
-            />
+        <div className="row">
+          <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12">
+            <div className="form-check _social_login_form_check">
+              <input
+                className="form-check-input _social_login_form_check_input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                checked
+              />
+              <label
+                className="form-check-label _social_login_form_check_label"
+                htmlFor="flexRadioDefault2"
+              >
+                Remember me
+              </label>
+            </div>
+          </div>
+          <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12">
+            <div className="_social_login_form_left">
+              <p className="_social_login_form_left_para">Forgot password?</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12">
-          <div className="form-check _social_login_form_check">
-            <input
-              className="form-check-input _social_login_form_check_input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault2"
-              checked
-            />
-            <label
-              className="form-check-label _social_login_form_check_label"
-              for="flexRadioDefault2"
-            >
-              Remember me
-            </label>
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-xl-12 col-sm-12">
+            <div className="_social_login_form_btn _mar_t40 _mar_b60">
+              <button
+                type="submit"
+                className="_social_login_form_btn_link _btn1 d-flex"
+                disabled={loading}
+              >
+                {loading ? "Loggin..." : "Login now"}
+              </button>
+            </div>
           </div>
         </div>
-        <div className="col-lg-6 col-xl-6 col-md-6 col-sm-12">
-          <div className="_social_login_form_left">
-            <p className="_social_login_form_left_para">Forgot password?</p>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-lg-12 col-md-12 col-xl-12 col-sm-12">
-          <div className="_social_login_form_btn _mar_t40 _mar_b60">
-            <button type="button" className="_social_login_form_btn_link _btn1">
-              Login now
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
+      </form>
+    </>
   );
 }
