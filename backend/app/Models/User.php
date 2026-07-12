@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Feed;
+use App\Models\FeedComment;
+use App\Models\FeedLike;
+
 
 #[Fillable(['first_name', 'last_name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
@@ -30,4 +34,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function feeds()
+    {
+        return $this->hasMany(Feed::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(FeedComment::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(FeedLike::class);
+    }
+
 }
