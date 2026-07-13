@@ -40,4 +40,14 @@ class AuthController extends Controller
             'token'=> $token,
         ],200);
     }
+
+
+    public function authorize(Request $request){
+        return response()->json([
+            'success' => true,
+            'authenticated' => true,
+            'user' => $request->user(),
+        ],200);
+    }
+
 }
