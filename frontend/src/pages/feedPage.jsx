@@ -1,7 +1,9 @@
+import MiddleLayout from "../components/user/middleLayout";
+
 export default function feedPage() {
   return (
     <>
-      <h1>Feed Page</h1>
+      <MiddleLayout />
     </>
   );
 }

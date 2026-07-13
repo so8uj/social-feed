@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import FormAlerts from "../form/formAlerts";
-import callApi from "../../hooks/callApi";
+import { useAuth } from "../../context/AuthContext";
 
 export default function singInFrom() {
+  const { register } = useAuth();
   const [signUpData, setSignUpData] = useState({
     first_name: "",
     last_name: "",
@@ -20,8 +21,6 @@ export default function singInFrom() {
     status: false,
     message: "",
   });
-
-  const { request } = callApi();
 
   const handleChange = (e) => {
     setSignUpData({
@@ -47,7 +46,7 @@ export default function singInFrom() {
       return;
     }
     if (signUpData.password !== signUpData.password_confirmation) {
-      setErrros({
+      setErros({
         status: true,
         message: "Passwords do not match",
       });
@@ -65,11 +64,7 @@ export default function singInFrom() {
     });
 
     try {
-      const response = await request({
-        method: "POST",
-        url: "registration",
-        data: signUpData,
-      });
+      await register(signUpData);
 
       setSuccess({
         status: true,

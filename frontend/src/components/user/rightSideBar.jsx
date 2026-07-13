@@ -1,3 +1,9 @@
+import Avatar from "@assets/images/Avatar.png";
+import people1 from "@assets/images/people1.png";
+import people2 from "@assets/images/people2.png";
+import people3 from "@assets/images/people3.png";
+import { Link } from "react-router-dom";
+
 export default function rightSideBar() {
   return (
     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
@@ -9,32 +15,28 @@ export default function rightSideBar() {
                 You Might Like
               </h4>
               <span className="_right_inner_area_info_content_txt">
-                <a
+                <Link
                   className="_right_inner_area_info_content_txt_link"
-                  href="#0"
+                  to="#"
                 >
                   See All
-                </a>
+                </Link>
               </span>
             </div>
             <hr className="_underline" />
             <div className="_right_inner_area_info_ppl">
               <div className="_right_inner_area_info_box">
                 <div className="_right_inner_area_info_box_image">
-                  <a href="profile.html">
-                    <img
-                      src="assets/images/Avatar.png"
-                      alt="Image"
-                      className="_ppl_img"
-                    />
-                  </a>
+                  <Link to="#">
+                    <img src={Avatar} alt="Image" className="_ppl_img" />
+                  </Link>
                 </div>
                 <div className="_right_inner_area_info_box_txt">
-                  <a href="profile.html">
+                  <Link to="#">
                     <h4 className="_right_inner_area_info_box_title">
                       Radovan SkillArena
                     </h4>
-                  </a>
+                  </Link>
                   <p className="_right_inner_area_info_box_para">
                     Founder & CEO at Trophy
                   </p>
@@ -62,12 +64,12 @@ export default function rightSideBar() {
                   Your Friends
                 </h4>
                 <span className="_feed_right_inner_area_card_content_txt">
-                  <a
+                  <Link
                     className="_feed_right_inner_area_card_content_txt_link"
-                    href="find-friends.html"
+                    to="#"
                   >
                     See All
-                  </a>
+                  </Link>
                 </span>
               </div>
               <form className="_feed_right_inner_area_card_form">
@@ -82,7 +84,7 @@ export default function rightSideBar() {
                   <circle cx="7" cy="7" r="6" stroke="#666"></circle>
                   <path
                     stroke="#666"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                     d="M16 16l-3-3"
                   ></path>
                 </svg>
@@ -98,20 +100,16 @@ export default function rightSideBar() {
               <div className="_feed_right_inner_area_card_ppl _feed_right_inner_area_card_ppl_inactive ">
                 <div className="_feed_right_inner_area_card_ppl_box">
                   <div className="_feed_right_inner_area_card_ppl_image">
-                    <a href="profile.html">
-                      <img
-                        src="assets/images/people1.png"
-                        alt=""
-                        className="_box_ppl_img"
-                      />
-                    </a>
+                    <Link to="#">
+                      <img src={people1} alt="" className="_box_ppl_img" />
+                    </Link>
                   </div>
                   <div className="_feed_right_inner_area_card_ppl_txt">
-                    <a href="profile.html">
+                    <Link to="#">
                       <h4 className="_feed_right_inner_area_card_ppl_title">
                         Steve Jobs
                       </h4>
-                    </a>
+                    </Link>
                     <p className="_feed_right_inner_area_card_ppl_para">
                       CEO of Apple
                     </p>
@@ -125,20 +123,16 @@ export default function rightSideBar() {
               <div className="_feed_right_inner_area_card_ppl">
                 <div className="_feed_right_inner_area_card_ppl_box">
                   <div className="_feed_right_inner_area_card_ppl_image">
-                    <a href="profile.html">
-                      <img
-                        src="assets/images/people2.png"
-                        alt=""
-                        className="_box_ppl_img"
-                      />
-                    </a>
+                    <Link to="#">
+                      <img src={people2} alt="" className="_box_ppl_img" />
+                    </Link>
                   </div>
                   <div className="_feed_right_inner_area_card_ppl_txt">
-                    <a href="profile.html">
+                    <Link to="#">
                       <h4 className="_feed_right_inner_area_card_ppl_title">
                         Ryan Roslansky
                       </h4>
-                    </a>
+                    </Link>
                     <p className="_feed_right_inner_area_card_ppl_para">
                       CEO of Linkedin
                     </p>
@@ -159,7 +153,7 @@ export default function rightSideBar() {
                       y="1"
                       fill="#0ACF83"
                       stroke="#fff"
-                      stroke-width="2"
+                      strokeWidth="2"
                       rx="6"
                     />
                   </svg>
@@ -168,20 +162,16 @@ export default function rightSideBar() {
               <div className="_feed_right_inner_area_card_ppl">
                 <div className="_feed_right_inner_area_card_ppl_box">
                   <div className="_feed_right_inner_area_card_ppl_image">
-                    <a href="profile.html">
-                      <img
-                        src="assets/images/people3.png"
-                        alt=""
-                        className="_box_ppl_img"
-                      />
-                    </a>
+                    <Link to="#">
+                      <img src={people3} alt="" className="_box_ppl_img" />
+                    </Link>
                   </div>
                   <div className="_feed_right_inner_area_card_ppl_txt">
-                    <a href="profile.html">
+                    <Link to="#">
                       <h4 className="_feed_right_inner_area_card_ppl_title">
                         Dylan Field
                       </h4>
-                    </a>
+                    </Link>
                     <p className="_feed_right_inner_area_card_ppl_para">
                       CEO of Figma
                     </p>
@@ -202,7 +192,7 @@ export default function rightSideBar() {
                       y="1"
                       fill="#0ACF83"
                       stroke="#fff"
-                      stroke-width="2"
+                      strokeWidth="2"
                       rx="6"
                     />
                   </svg>
@@ -211,20 +201,16 @@ export default function rightSideBar() {
               <div className="_feed_right_inner_area_card_ppl _feed_right_inner_area_card_ppl_inactive">
                 <div className="_feed_right_inner_area_card_ppl_box">
                   <div className="_feed_right_inner_area_card_ppl_image">
-                    <a href="profile.html">
-                      <img
-                        src="assets/images/people1.png"
-                        alt=""
-                        className="_box_ppl_img"
-                      />
-                    </a>
+                    <Link to="#">
+                      <img src={people1} alt="" className="_box_ppl_img" />
+                    </Link>
                   </div>
                   <div className="_feed_right_inner_area_card_ppl_txt">
-                    <a href="profile.html">
+                    <Link to="#">
                       <h4 className="_feed_right_inner_area_card_ppl_title">
                         Steve Jobs
                       </h4>
-                    </a>
+                    </Link>
                     <p className="_feed_right_inner_area_card_ppl_para">
                       CEO of Apple
                     </p>
@@ -238,20 +224,16 @@ export default function rightSideBar() {
               <div className="_feed_right_inner_area_card_ppl">
                 <div className="_feed_right_inner_area_card_ppl_box">
                   <div className="_feed_right_inner_area_card_ppl_image">
-                    <a href="profile.html">
-                      <img
-                        src="assets/images/people2.png"
-                        alt=""
-                        className="_box_ppl_img"
-                      />
-                    </a>
+                    <Link to="#">
+                      <img src={people2} alt="" className="_box_ppl_img" />
+                    </Link>
                   </div>
                   <div className="_feed_right_inner_area_card_ppl_txt">
-                    <a href="profile.html">
+                    <Link to="#">
                       <h4 className="_feed_right_inner_area_card_ppl_title">
                         Ryan Roslansky
                       </h4>
-                    </a>
+                    </Link>
                     <p className="_feed_right_inner_area_card_ppl_para">
                       CEO of Linkedin
                     </p>
@@ -272,7 +254,7 @@ export default function rightSideBar() {
                       y="1"
                       fill="#0ACF83"
                       stroke="#fff"
-                      stroke-width="2"
+                      strokeWidth="2"
                       rx="6"
                     />
                   </svg>
@@ -281,20 +263,16 @@ export default function rightSideBar() {
               <div className="_feed_right_inner_area_card_ppl">
                 <div className="_feed_right_inner_area_card_ppl_box">
                   <div className="_feed_right_inner_area_card_ppl_image">
-                    <a href="profile.html">
-                      <img
-                        src="assets/images/people3.png"
-                        alt=""
-                        className="_box_ppl_img"
-                      />
-                    </a>
+                    <Link to="#">
+                      <img src={people3} alt="" className="_box_ppl_img" />
+                    </Link>
                   </div>
                   <div className="_feed_right_inner_area_card_ppl_txt">
-                    <a href="profile.html">
+                    <Link to="#">
                       <h4 className="_feed_right_inner_area_card_ppl_title">
                         Dylan Field
                       </h4>
-                    </a>
+                    </Link>
                     <p className="_feed_right_inner_area_card_ppl_para">
                       CEO of Figma
                     </p>
@@ -315,7 +293,7 @@ export default function rightSideBar() {
                       y="1"
                       fill="#0ACF83"
                       stroke="#fff"
-                      stroke-width="2"
+                      strokeWidth="2"
                       rx="6"
                     />
                   </svg>
@@ -324,20 +302,16 @@ export default function rightSideBar() {
               <div className="_feed_right_inner_area_card_ppl">
                 <div className="_feed_right_inner_area_card_ppl_box">
                   <div className="_feed_right_inner_area_card_ppl_image">
-                    <a href="profile.html">
-                      <img
-                        src="assets/images/people3.png"
-                        alt=""
-                        className="_box_ppl_img"
-                      />
-                    </a>
+                    <Link to="#">
+                      <img src={people3} alt="" className="_box_ppl_img" />
+                    </Link>
                   </div>
                   <div className="_feed_right_inner_area_card_ppl_txt">
-                    <a href="profile.html">
+                    <Link to="#">
                       <h4 className="_feed_right_inner_area_card_ppl_title">
                         Dylan Field
                       </h4>
-                    </a>
+                    </Link>
                     <p className="_feed_right_inner_area_card_ppl_para">
                       CEO of Figma
                     </p>
@@ -358,7 +332,7 @@ export default function rightSideBar() {
                       y="1"
                       fill="#0ACF83"
                       stroke="#fff"
-                      stroke-width="2"
+                      strokeWidth="2"
                       rx="6"
                     />
                   </svg>
@@ -367,20 +341,16 @@ export default function rightSideBar() {
               <div className="_feed_right_inner_area_card_ppl _feed_right_inner_area_card_ppl_inactive">
                 <div className="_feed_right_inner_area_card_ppl_box">
                   <div className="_feed_right_inner_area_card_ppl_image">
-                    <a href="profile.html">
-                      <img
-                        src="assets/images/people1.png"
-                        alt=""
-                        className="_box_ppl_img"
-                      />
-                    </a>
+                    <Link to="#">
+                      <img src={people1} alt="" className="_box_ppl_img" />
+                    </Link>
                   </div>
                   <div className="_feed_right_inner_area_card_ppl_txt">
-                    <a href="profile.html">
+                    <Link to="#">
                       <h4 className="_feed_right_inner_area_card_ppl_title">
                         Steve Jobs
                       </h4>
-                    </a>
+                    </Link>
                     <p className="_feed_right_inner_area_card_ppl_para">
                       CEO of Apple
                     </p>

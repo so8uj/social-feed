@@ -1,6 +1,8 @@
-import { Outlet, Navigate } from "react-router";
+import { Navigate, Outlet } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
-export default function guestRoutes() {
-  const isLoggedIn = localStorage.getItem("token");
-  return !isLoggedIn ? <Outlet /> : <Navigate to="/" />;
+export default function GuestRoute() {
+  const { authenticated } = useAuth();
+
+  return authenticated ? <Navigate to="/" replace /> : <Outlet />;
 }

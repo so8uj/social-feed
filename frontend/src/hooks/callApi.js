@@ -22,8 +22,7 @@ export default function callApi() {
             return response.data;
         } catch (err) {   
             throw err;
-        } finally {
-        }
+        } 
     };
 
     return {

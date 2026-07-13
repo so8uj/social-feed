@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
-import callApi from "../../hooks/callApi";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { useAuth } from "../../context/AuthContext";
 import FormAlerts from "../form/formAlerts";
 
 export default function singInFrom() {
-  const { request } = callApi();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setErros] = useState({
     status: false,
     message: "",
   });
+
+  const { login } = useAuth();
 
   const [signInData, setSignInData] = useState({
     email: "",
@@ -44,13 +47,8 @@ export default function singInFrom() {
     resetSuccessError();
 
     try {
-      const response = await request({
-        method: "POST",
-        url: "login",
-        data: signInData,
-      });
-
-      localStorage.setItem("token", response.token);
+      await login(signInData);
+      navigate("/");
     } catch (err) {
       setLoading(false);
       setErros({
@@ -100,7 +98,7 @@ export default function singInFrom() {
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault2"
-                checked
+                defaultChecked
               />
               <label
                 className="form-check-label _social_login_form_check_label"
