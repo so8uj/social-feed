@@ -4,7 +4,7 @@ import people2 from "@assets/images/people2.png";
 import people3 from "@assets/images/people3.png";
 import { Link } from "react-router-dom";
 
-export default function rightSideBar() {
+export default function RightSideBar() {
   return (
     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
       <div className="_layout_right_sidebar_wrap">

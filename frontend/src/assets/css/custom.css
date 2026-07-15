@@ -1,0 +1,28 @@
+.form-check-label {
+  cursor: pointer;
+}
+
+._dark_wrapper .col-form-label,
+._dark_wrapper .form-check-label {
+  color: var(--color7);
+}
+
+._dark_wrapper .form-check-label:hover,
+._dark_wrapper .form-check-input:checked ~ .form-check-label {
+  color: var(--color5);
+}
+
+._dark_wrapper .modal-content {
+  background-color: var(--bg5);
+}
+._dark_wrapper .modal.show {
+  background-color: rgb(94 93 93 / 36%) !important;
+}
+._feed_textarea_label._feed_textarea_level_active {
+  opacity: 0 !important;
+}
+.preview_image {
+  width: 70% !important;
+  margin: auto;
+  margin-bottom: 10px;
+}

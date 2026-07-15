@@ -4,7 +4,7 @@ import people3 from "@assets/images/people3.png";
 import feed_event1 from "@assets/images/feed_event1.png";
 import { Link } from "react-router-dom";
 
-export default function leftSideBar() {
+export default function LeftSideBar() {
   return (
     <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
       <div className="_layout_left_sidebar_wrap">
@@ -283,9 +283,7 @@ export default function leftSideBar() {
                 <hr className="_underline" />
                 <div className="_left_inner_event_bottom">
                   <p className="_left_iner_event_bottom">17 People Going</p>{" "}
-                  <span className="_left_iner_event_bottom_link">
-                    Going
-                  </span>
+                  <span className="_left_iner_event_bottom_link">Going</span>
                 </div>
               </div>
             </Link>
@@ -308,9 +306,7 @@ export default function leftSideBar() {
                 <hr className="_underline" />
                 <div className="_left_inner_event_bottom">
                   <p className="_left_iner_event_bottom">17 People Going</p>{" "}
-                  <span className="_left_iner_event_bottom_link">
-                    Going
-                  </span>
+                  <span className="_left_iner_event_bottom_link">Going</span>
                 </div>
               </div>
             </Link>

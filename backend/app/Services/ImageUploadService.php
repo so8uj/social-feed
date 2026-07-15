@@ -4,12 +4,19 @@ namespace App\Services;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
-use Intervention\Image\Laravel\Facades\Image;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Encoders\WebpEncoder;
 
 class ImageUploadService
 {
-    
+    protected ImageManager $manager;
+
+    public function __construct()
+    {
+        $this->manager = new ImageManager(new Driver());
+    }
+
     public function upload(
         UploadedFile $file,
         string $folder = 'feed'
@@ -21,17 +28,18 @@ class ImageUploadService
             mkdir($directory, 0755, true);
         }
 
-        $fileName = Str::uuid() . '.webp';
+        $filename = Str::uuid() . '.webp';
 
-        $relativePath = "uploads/{$folder}/{$fileName}";
+        $relativePath = "uploads/{$folder}/{$filename}";
 
-        Image::read($file)
+        $image = $this->manager->read($file);
+
+        $image
             ->encode(new WebpEncoder(quality: 80))
             ->save(public_path($relativePath));
 
         return $relativePath;
     }
-
 
     public function delete(?string $path): bool
     {

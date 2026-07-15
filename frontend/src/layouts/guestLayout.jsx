@@ -6,7 +6,7 @@ import dark_shape from "@assets/images/dark_shape.svg";
 import dark_shape1 from "@assets/images/dark_shape1.svg";
 import dark_shape2 from "@assets/images/dark_shape2.svg";
 
-export default function guestLayout() {
+export default function GuestLayout() {
   return (
     <section className="_social_login_wrapper _layout_main_wrapper">
       <div className="_shape_one">

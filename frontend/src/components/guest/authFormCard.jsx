@@ -1,10 +1,10 @@
 import google from "@assets/images/google.svg";
 import logo from "@assets/images/logo.svg";
-import SingInFrom from "./singInFrom";
-import SingUpFrom from "./singUpFrom";
+import SignInForm from "./SignInForm";
+import SignUpForm from "./SignUpForm";
 import { Link } from "react-router-dom";
 
-export default function authFormCard({
+export default function AuthFormCard({
   cardDetail = {
     page: "signin",
     subHeading: "Welcome back",
@@ -33,7 +33,7 @@ export default function authFormCard({
         <span>Or</span>
       </div>
 
-      {cardDetail.page === "signin" ? <SingInFrom /> : <SingUpFrom />}
+      {cardDetail.page === "signin" ? <SignInForm /> : <SignUpForm />}
 
       <div className="row">
         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">

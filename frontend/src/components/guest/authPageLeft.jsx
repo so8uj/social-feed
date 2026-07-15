@@ -1,4 +1,4 @@
-export default function authPageLeft({ leftImage }) {
+export default function AuthPageLeft({ leftImage }) {
   return (
     <div className="_social_login_left">
       <div className="_social_login_left_image">

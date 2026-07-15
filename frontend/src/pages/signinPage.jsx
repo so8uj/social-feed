@@ -1,8 +1,8 @@
 import login from "@assets/images/login.png";
-import AuthPageLeft from "../components/guest/authPageLeft";
-import AuthFormCard from "../components/guest/authFormCard";
+import AuthPageLeft from "../components/guest/AuthPageLeft";
+import AuthFormCard from "../components/guest/AuthFormCard";
 
-export default function signinPage() {
+export default function SigninPage() {
   return (
     <div className="_social_login_wrap">
       <div className="container">

@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 
 class FeedResource extends JsonResource
 {
@@ -20,13 +21,14 @@ class FeedResource extends JsonResource
             'image' => $this->image
                 ? asset($this->image)
                 : null,
-            'visibility' => $this->visibility,
+            'visibility' => Str::ucfirst($this->visibility),
             'user' => [
                 'id' => $this->user->id,
                 'first_name' => $this->user->first_name,
                 'last_name' => $this->user->last_name,
                 'email' => $this->user->email,
             ],
+            'user_liked' => (bool) $this->user_liked,
             'likes_count' => $this->likes_count
                 ?? $this->likes()->count(),
             'comments_count' => $this->comments_count

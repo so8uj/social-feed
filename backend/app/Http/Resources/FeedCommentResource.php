@@ -31,6 +31,7 @@ class FeedCommentResource extends JsonResource
                 'last_name' => $this->user->last_name,
                 'email' => $this->user->email,
             ],
+            'user_liked' => (bool) $this->user_liked,
             'replies' => FeedCommentResource::collection(
                 $this->whenLoaded('replies')
             ),

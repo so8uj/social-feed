@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (data) => {
     return await request({
       method: "POST",
-      url: "/register",
+      url: "/registration",
       data,
     });
   };

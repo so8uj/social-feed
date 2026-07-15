@@ -15,12 +15,13 @@ Route::prefix('v1')->group(function(){
         Route::post('login', 'login');
         Route::post('registration', 'registration');
     });
-
-  
-    Route::middleware('auth:sanctum')->group(function () {
     
+    
+    Route::middleware('auth:sanctum')->group(function () {
+        
         Route::controller(AuthController::class)->group(function () {
             Route::post('authorize', 'authorize');
+            Route::post('logout', 'logout');
         });
         Route::apiResource('feeds', FeedController::class);
         

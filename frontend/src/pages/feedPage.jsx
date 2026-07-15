@@ -1,6 +1,6 @@
-import MiddleLayout from "../components/user/middleLayout";
+import MiddleLayout from "../components/user/MiddleLayout";
 
-export default function feedPage() {
+export default function FeedPage() {
   return (
     <>
       <MiddleLayout />

@@ -1,0 +1,423 @@
+{
+  "info": {
+    "_postman_id": "6dabae0e-8c45-4f71-975b-1134fde918c9",
+    "name": "Feed App Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29118840"
+  },
+  "item": [
+    {
+      "name": "Registration",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "first_name",
+              "value": "Sobuj",
+              "type": "text",
+              "uuid": "fbbcac14-2988-415b-a893-51cf2d8d7a66"
+            },
+            {
+              "key": "last_name",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "email",
+              "value": "developersobuj@gmail.com",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "12345678",
+              "type": "text"
+            },
+            {
+              "key": "password_confirmation",
+              "value": "12345678",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseurl}}registration",
+          "host": [
+            "{{baseurl}}registration"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "developersobuj@gmail.com",
+              "type": "text",
+              "uuid": "d2683680-b9ab-4e8f-af5d-e6e8c2f65721"
+            },
+            {
+              "key": "password",
+              "value": "00000000",
+              "type": "text",
+              "uuid": "d71e6716-2c50-43a4-958f-a3b1c51aa06d"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseurl}}login",
+          "host": [
+            "{{baseurl}}login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Authorize User",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseurl}}authorize",
+          "host": [
+            "{{baseurl}}authorize"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Feeds",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseurl}}feeds",
+          "host": [
+            "{{baseurl}}feeds"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Feed",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": " multipart/form-data",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "body",
+              "value": " This is my first post.",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "value": " beach.jpg",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "visibility",
+              "value": " public",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseurl}}feeds",
+          "host": [
+            "{{baseurl}}feeds"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Feed Update",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": " multipart/form-data",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "body",
+              "value": "Post Updating",
+              "type": "text"
+            },
+            {
+              "key": "visibility",
+              "value": " public",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseurl}}feeds/1",
+          "host": [
+            "{{baseurl}}feeds"
+          ],
+          "path": [
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Feed",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseurl}}feeds/1",
+          "host": [
+            "{{baseurl}}feeds"
+          ],
+          "path": [
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Like Feed",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "{{baseurl}}feeds/1/like",
+          "host": [
+            "{{baseurl}}feeds"
+          ],
+          "path": [
+            "1",
+            "like"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Feed Comment",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "body",
+              "value": "Thanks!",
+              "type": "text"
+            },
+            {
+              "key": "parent_id",
+              "value": "2",
+              "type": "text",
+              "uuid": "dd0d55df-404f-4530-b2ab-5476905ae8bc"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseurl}}feeds/1/comments",
+          "host": [
+            "{{baseurl}}feeds"
+          ],
+          "path": [
+            "1",
+            "comments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Feed Comment Like",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": " application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseurl}}feeds/comments/1/like",
+          "host": [
+            "{{baseurl}}feeds"
+          ],
+          "path": [
+            "comments",
+            "1",
+            "like"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-export default function formAlerts({
+export default function FormAlerts({
   alertData = {
     type: "success",
     message: "Alert",

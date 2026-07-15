@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
-import FormAlerts from "../form/formAlerts";
+import FormAlerts from "../form/FormAlerts";
 
-export default function singInFrom() {
+export default function SignInForm() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setErros] = useState({

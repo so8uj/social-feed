@@ -50,4 +50,13 @@ class AuthController extends Controller
         ],200);
     }
 
+    public function logout(Request $request)
+    {
+        $request->user()->tokens()->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Logged out from all devices successfully.',
+        ], 200);
+    }
+
 }

@@ -22,32 +22,63 @@ class FeedController extends Controller
     public function index(Request $request): JsonResponse
     {
         $feeds = Feed::query()
-            ->where(function ($query) {
+        ->where(function ($query) {
 
-                $query->where('visibility', 'public')
-                    ->orWhere(function ($query) {
+            $query->where('visibility', 'public')
+                ->orWhere(function ($query) {
 
-                        $query->where('visibility', 'private')
-                            ->where('user_id', auth()->id());
+                    $query->where('visibility', 'private')
+                        ->where('user_id', auth()->id());
 
-                    });
+                });
 
-            })
-            ->with([
-                'user',
-                'comments' => function ($query) {
-                    $query->with([
-                        'user',
-                        'replies.user',
+        })
+        ->with([
+            'user',
+
+            'comments' => function ($query) {
+
+                $query
+                    ->with('user')
+                    ->withCount([
+                        'likes',
+                        'replies',
+                    ])
+                    ->withExists([
+                        'likes as user_liked' => function ($query) {
+                            $query->where('user_id', auth()->id());
+                        }
+                    ])
+                    ->with([
+                        'replies' => function ($query) {
+
+                            $query
+                                ->with('user')
+                                ->withCount([
+                                    'likes',
+                                    'replies',
+                                ])
+                                ->withExists([
+                                    'likes as user_liked' => function ($query) {
+                                        $query->where('user_id', auth()->id());
+                                    }
+                                ]);
+                        }
                     ]);
-                }
-            ])
-            ->withCount([
-                'likes',
-                'comments',
-            ])
-            ->latest()
-            ->paginate(10);
+            }
+
+        ])
+        ->withCount([
+            'likes',
+            'comments',
+        ])
+        ->withExists([
+            'likes as user_liked' => function ($query) {
+                $query->where('user_id', auth()->id());
+            }
+        ])
+        ->latest()
+        ->paginate(10);
 
         return response()->json([
             'success' => true,
@@ -72,6 +103,7 @@ class FeedController extends Controller
                 $request->file('image'),
                 'feed'
             );
+
         }
 
         $feed = Feed::create([
@@ -164,7 +196,6 @@ class FeedController extends Controller
             $feed->user_id !== auth()->id(),
             403
         );
-
         $this->imageService->delete($feed->image);
 
         $feed->delete();

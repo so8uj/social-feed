@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import FormAlerts from "../form/formAlerts";
+import FormAlerts from "../form/FormAlerts";
 import { useAuth } from "../../context/AuthContext";
 
-export default function singInFrom() {
+export default function SignUpForm() {
   const { register } = useAuth();
   const [signUpData, setSignUpData] = useState({
     first_name: "",
