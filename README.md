@@ -26,7 +26,7 @@ Welcome to the **Social Feed Application** — a modern social networking feed b
 
 | Layer            | Technology                     |
 | ---------------- | ------------------------------ |
-| Framework        | Laravel 14                     |
+| Framework        | Laravel 13                     |
 | Authentication   | Laravel Sanctum (Bearer Token) |
 | Image Processing | Intervention Image             |
 | Database         | MySQL (MariaDB 10.4+)          |
