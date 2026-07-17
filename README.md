@@ -1,6 +1,6 @@
 # Social Feed Application
 
-Welcome to the **Social Feed Application** — a modern social networking feed built with a Laravel 14 REST API backend and a React.js frontend, featuring public & private post timelines, nested comments, and a polymorphic like system.
+Welcome to the **Social Feed Application** — a modern social networking feed built with a Laravel 13 REST API backend and a React.js frontend, featuring public & private post timelines, nested comments, and a polymorphic like system.
 
 🌐 **Live Demo:** [feed-app.watermarkbd.com](https://feed-app.watermarkbd.com)
 
@@ -29,7 +29,7 @@ Welcome to the **Social Feed Application** — a modern social networking feed b
 | Framework        | Laravel 13                     |
 | Authentication   | Laravel Sanctum (Bearer Token) |
 | Image Processing | Intervention Image             |
-| Database         | MySQL (MariaDB 10.4+)          |
+| Database         | MySQL           |
 | ORM              | Eloquent                       |
 
 ### Frontend
@@ -215,7 +215,7 @@ This layering keeps context providers clean (pure state logic) and components de
 
 ### Prerequisites
 
-- PHP 8.2+, Composer
+- PHP 8.3+, Composer
 - Node.js 18+, npm
 - MySQL / MariaDB
 
@@ -274,7 +274,7 @@ Ensure the API base URL in the Axios config points to your Laravel server (defau
 
 ```
 social-feed-application/
-├── backend/                        # Laravel 14 API
+├── backend/                        # Laravel 13 API
 │   └── app/
 │       ├── Models/
 │       │   ├── User.php
